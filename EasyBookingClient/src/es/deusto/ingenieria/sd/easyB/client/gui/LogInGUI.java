@@ -10,10 +10,18 @@ import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JSeparator;
+import javax.swing.SwingConstants;
 
 public class LogInGUI {
 
 	private JFrame frmLogIn;
+	private JTextField textFieldemail;
+	private JTextField textFieldPassword;
 
 	/**
 	 * Launch the application.
@@ -60,6 +68,49 @@ public class LogInGUI {
 		lblNewLabel.setFont(new Font("Yu Gothic", Font.BOLD, 22));
 		lblNewLabel.setBounds(297, 50, 464, 140);
 		frmLogIn.getContentPane().add(lblNewLabel);
+		
+		textFieldemail = new JTextField();
+		textFieldemail.setBounds(230, 281, 220, 20);
+		frmLogIn.getContentPane().add(textFieldemail);
+		textFieldemail.setColumns(10);
+		
+		JLabel lblEmail = new JLabel("Email:");
+		lblEmail.setBounds(183, 284, 45, 13);
+		frmLogIn.getContentPane().add(lblEmail);
+		
+		JLabel lblPassword = new JLabel("Contrase\u00F1a:");
+		lblPassword.setBounds(150, 328, 78, 13);
+		frmLogIn.getContentPane().add(lblPassword);
+		
+		textFieldPassword = new JTextField();
+		textFieldPassword.setBounds(230, 325, 220, 19);
+		frmLogIn.getContentPane().add(textFieldPassword);
+		textFieldPassword.setColumns(10);
+		
+		JButton btnLogIn = new JButton("Iniciar Sesi\u00F3n");
+		btnLogIn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnLogIn.setBounds(274, 381, 129, 27);
+		frmLogIn.getContentPane().add(btnLogIn);
+		
+		JSeparator separator = new JSeparator();
+		separator.setOrientation(SwingConstants.VERTICAL);
+		separator.setBounds(481, 212, 24, 234);
+		frmLogIn.getContentPane().add(separator);
+		
+		JLabel lblRegistro = new JLabel("\u00BFNo tienes una cuenta creada?");
+		lblRegistro.setBounds(542, 306, 204, 17);
+		frmLogIn.getContentPane().add(lblRegistro);
+		
+		JButton btnRegistro = new JButton("Registrarse\r\n");
+		btnRegistro.setBounds(577, 343, 105, 21);
+		frmLogIn.getContentPane().add(btnRegistro);
+		
+		JLabel lblLogIn = new JLabel("Introduce tus datos para iniciar sesi\u00F3n:");
+		lblLogIn.setBounds(217, 225, 254, 13);
+		frmLogIn.getContentPane().add(lblLogIn);
 		
 		
 		
