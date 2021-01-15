@@ -18,6 +18,7 @@ public class RegistroGUI {
 	private JTextField textField;
 	private JPasswordField passwordField;
 	private ButtonGroup btnGroupSistAut = new ButtonGroup();
+	private ButtonGroup btnGroupSistPago = new ButtonGroup();
 
 	/**
 	 * Launch the application.
@@ -88,5 +89,20 @@ public class RegistroGUI {
 		JLabel lblPass = new JLabel("Contrase\u00F1a:");
 		lblPass.setBounds(69, 309, 84, 13);
 		frmRegistro.getContentPane().add(lblPass);
+		
+		JLabel lblSistPago = new JLabel("Sistema de pago:");
+		lblSistPago.setBounds(69, 378, 125, 15);
+		frmRegistro.getContentPane().add(lblSistPago);
+		
+		JRadioButton rdbtnPayPal = new JRadioButton("PayPal");
+		rdbtnPayPal.setSelected(true);
+		rdbtnPayPal.setBounds(62, 418, 103, 21);
+		frmRegistro.getContentPane().add(rdbtnPayPal);
+		btnGroupSistPago.add(rdbtnPayPal);
+		
+		JRadioButton rdbtnVisa = new JRadioButton("Visa");
+		rdbtnVisa.setBounds(62, 448, 103, 21);
+		frmRegistro.getContentPane().add(rdbtnVisa);
+		btnGroupSistPago.add(rdbtnVisa);
 	}
 }
