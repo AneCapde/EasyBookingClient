@@ -4,9 +4,9 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
-public class BuscarVuelo {
+public class ResultadoVuelosGUI {
 
-	private JFrame frameBuscador;
+	private JFrame frame;
 
 	/**
 	 * Launch the application.
@@ -15,8 +15,8 @@ public class BuscarVuelo {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					BuscarVuelo window = new BuscarVuelo();
-					window.frameBuscador.setVisible(true);
+					ResultadoVuelosGUI window = new ResultadoVuelosGUI();
+					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -27,7 +27,7 @@ public class BuscarVuelo {
 	/**
 	 * Create the application.
 	 */
-	public BuscarVuelo() {
+	public ResultadoVuelosGUI() {
 		initialize();
 	}
 
@@ -35,11 +35,9 @@ public class BuscarVuelo {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frameBuscador = new JFrame();
-		frameBuscador.setTitle("Buscar Vuelo");
-		frameBuscador.setBounds(100, 100, 800, 600);
-		frameBuscador.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frameBuscador.getContentPane().setLayout(null);
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 }
