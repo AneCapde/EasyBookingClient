@@ -6,11 +6,11 @@ import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-import java.awt.BorderLayout;
 import javax.swing.JRadioButton;
 import javax.swing.JSeparator;
 import javax.swing.JPasswordField;
+import javax.swing.JComboBox;
+import javax.swing.JButton;
 
 public class RegistroGUI {
 
@@ -55,17 +55,17 @@ public class RegistroGUI {
 		frmRegistro.getContentPane().setLayout(null);
 		
 		JLabel lblReg = new JLabel("Registrarse usando...");
-		lblReg.setBounds(175, 100, 200, 15);
+		lblReg.setBounds(175, 63, 200, 15);
 		frmRegistro.getContentPane().add(lblReg);
 		
 		JRadioButton rdbtnGoogle = new JRadioButton("Google");
-		rdbtnGoogle.setBounds(175, 134, 103, 21);
+		rdbtnGoogle.setBounds(175, 105, 103, 21);
 		frmRegistro.getContentPane().add(rdbtnGoogle);
 		rdbtnGoogle.setSelected(true);
 		btnGroupSistAut.add(rdbtnGoogle);
 		
 		JRadioButton rdbtnFacebook = new JRadioButton("Facebook");
-		rdbtnFacebook.setBounds(175, 169, 103, 21);
+		rdbtnFacebook.setBounds(175, 146, 103, 21);
 		frmRegistro.getContentPane().add(rdbtnFacebook);
 		btnGroupSistAut.add(rdbtnFacebook);
 		
@@ -104,5 +104,21 @@ public class RegistroGUI {
 		rdbtnVisa.setBounds(62, 448, 103, 21);
 		frmRegistro.getContentPane().add(rdbtnVisa);
 		btnGroupSistPago.add(rdbtnVisa);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(510, 273, 209, 21);
+		frmRegistro.getContentPane().add(comboBox);
+		comboBox.addItem("MAD");
+		comboBox.addItem("BIO");
+		
+		JLabel lblAeropuerto = new JLabel("Aeropuerto origen:");
+		lblAeropuerto.setBounds(541, 239, 163, 13);
+		frmRegistro.getContentPane().add(lblAeropuerto);
+		
+		JButton btnRegistrarse = new JButton("Registrarse");
+		btnRegistrarse.setBounds(361, 515, 125, 30);
+		frmRegistro.getContentPane().add(btnRegistrarse);
+		
+		
 	}
 }
