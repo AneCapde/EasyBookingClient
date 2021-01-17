@@ -1,8 +1,10 @@
 package es.deusto.ingenieria.sd.easyB.client.controller;
 
 import java.rmi.RemoteException;
+import java.util.List;
 
 import es.deusto.ingenieria.sd.easyB.client.remote.RMIServiceLocator;
+import es.deusto.ingenieria.sd.easyB.server.data.dto.AeropuertoDTO;
 
 public class AutorizacionController {
 	
@@ -21,13 +23,17 @@ public class AutorizacionController {
 		}
 	}
 	
-	/*public boolean registrarUsuario(String email, String password, String sistemePago, String aeropueto) {
+	/*public boolean registrarUsuario(String email, String password, String sistemePago, String cod_aeropueto) {
 		try {
-			//return this.serviceLocator.getService()	....Falta en el método en el IEasyBookingRemoteFacade
+			//return this.serviceLocator.getService()-->registrarUsuario(String email, String password, String sistemePago, String cod_aeropueto)
 		} catch (RemoteException e) {
 			System.err.println("# Error durante el registro: " + e);
 			return false;
 		}
+	}*/
+	
+	/*public List<AeropuertoDTO> getAeropuertos(){
+		
 	}*/
 	
 	
