@@ -20,6 +20,8 @@ import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 
 import es.deusto.ingenieria.sd.easyB.client.controller.AutorizacionController;
+import es.deusto.ingenieria.sd.easyB.client.controller.BusquedaController;
+import es.deusto.ingenieria.sd.easyB.client.program.MainProgram;
 
 import javax.swing.JPasswordField;
 
@@ -28,7 +30,7 @@ public class LogInGUI {
 	private JFrame frmLogIn;
 	private JTextField textFieldemail;
 	private JPasswordField passwordField;
-	private AutorizacionController controller;
+	private AutorizacionController autController;
 
 	/**
 	 * Launch the application.
@@ -49,9 +51,10 @@ public class LogInGUI {
 	/**
 	 * Create the application.
 	 */
-	public LogInGUI(AutorizacionController controller) {
+	public LogInGUI(AutorizacionController autController) {
 		initialize();
-		this.controller = controller;
+		this.autController = autController;
+		
 	}
 
 	/**
@@ -93,9 +96,11 @@ public class LogInGUI {
 		JButton btnLogIn = new JButton("Iniciar Sesi\u00F3n");
 		btnLogIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				if(controller.login(textFieldemail.getText(), passwordField.getPassword().toString())) {
-					new BuscarVueloGUI();
+				//CONTROLLER --> LOGIN
+				if(autController.login(textFieldemail.getText(), passwordField.getPassword().toString())) {
+					
+					BusquedaController busController = new BusquedaController(MainProgram.getServiceLocator());
+					new BuscarVueloGUI(busController);
 					frmLogIn.dispose();
 				} else {
 					JOptionPane.showMessageDialog(frmLogIn, "LogIn incorrecto");
@@ -118,9 +123,9 @@ public class LogInGUI {
 		
 		JButton btnRegistro = new JButton("Registrarse\r\n");
 		btnRegistro.addActionListener(new ActionListener() {
-			
+			//REGISTROGUI
 			public void actionPerformed(ActionEvent e) {
-				new RegistroGUI(controller);
+				new RegistroGUI(autController);
 				frmLogIn.dispose();
 			}
 		});

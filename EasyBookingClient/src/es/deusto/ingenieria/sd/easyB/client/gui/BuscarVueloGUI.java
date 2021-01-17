@@ -19,12 +19,12 @@ import java.awt.event.ActionEvent;
 public class BuscarVueloGUI {
 
 	private JFrame frameBuscador;
-	private BusquedaController controller;
+	private BusquedaController busController;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -35,13 +35,15 @@ public class BuscarVueloGUI {
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the application.
+	 * @param busController 
 	 */
-	public BuscarVueloGUI() {
+	public BuscarVueloGUI(BusquedaController busController) {
 		initialize();
+		this.busController = busController;
 	}
 
 	/**
