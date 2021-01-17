@@ -14,12 +14,16 @@ import javax.swing.table.DefaultTableModel;
 
 import java.awt.Font;
 import javax.swing.JList;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class ResultadoVuelosGUI {
 
 	private JFrame frameResult;
 	private JTable jTable;
 	private DefaultTableModel tableModel;
+	private JButton btnSeleccionarVuelo;
 
 	/**
 	 * Launch the application.
@@ -71,6 +75,16 @@ public class ResultadoVuelosGUI {
 		JScrollPane scrollPane = new JScrollPane(jTable);
 		scrollPane.setBounds(114,44, 418, 200);
 		frameResult.getContentPane().add(scrollPane);
+		
+		btnSeleccionarVuelo = new JButton("Seleccionar Vuelo");
+		btnSeleccionarVuelo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+			}
+		});
+		btnSeleccionarVuelo.setBounds(312, 489, 162, 31);
+		frameResult.getContentPane().add(btnSeleccionarVuelo);
 		
 		
 	}
