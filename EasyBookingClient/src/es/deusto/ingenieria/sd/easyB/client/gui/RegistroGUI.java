@@ -115,9 +115,11 @@ public class RegistroGUI {
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setBounds(510, 273, 209, 21);
-		frmRegistro.getContentPane().add(comboBox);
-		comboBox.addItem("MAD");
-		comboBox.addItem("BIO");
+		frmRegistro.getContentPane().add(comboBox);	
+		//CONTROLLER --> GETAEROPUERTOS
+		for (String s : controller.getAeropuertos()) {
+			comboBox.addItem(s);
+		}
 		
 		JLabel lblAeropuerto = new JLabel("Aeropuerto origen:");
 		lblAeropuerto.setBounds(541, 239, 163, 13);
@@ -127,8 +129,9 @@ public class RegistroGUI {
 		btnRegistrarse.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-				
-				
+			//CONTROLLER --> REGISTRARUSUARIO	
+				controller.registrarUsuario(textField.getText(), passwordField.getPassword().toString(), 
+									btnGroupSistPago.getSelection().getActionCommand(), comboBox.getSelectedItem().toString());
 			}
 			
 		});

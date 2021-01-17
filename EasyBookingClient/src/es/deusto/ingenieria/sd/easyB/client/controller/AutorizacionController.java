@@ -23,18 +23,29 @@ public class AutorizacionController {
 		}
 	}
 	
-	/*public boolean registrarUsuario(String email, String password, String sistemePago, String cod_aeropueto) {
+	public boolean registrarUsuario(String email, String password, String sistemePago, String cod_aeropueto) {
 		try {
-			//return this.serviceLocator.getService()-->registrarUsuario(String email, String password, String sistemePago, String cod_aeropueto)
+			return this.serviceLocator.getService().registrarUsuario(email, password, sistemePago, cod_aeropueto);
 		} catch (RemoteException e) {
 			System.err.println("# Error durante el registro: " + e);
 			return false;
 		}
-	}*/
+	}
 	
-	/*public List<AeropuertoDTO> getAeropuertos(){
+	public String[] getAeropuertos(){
+		try {
+			String[] aeropuertos = new String[50];
+			int i = 0;
+			for (AeropuertoDTO a : serviceLocator.getService().getAeropuertos()) {
+				aeropuertos[i] = a.getCod_aeropuerto();
+				i++;
+			}
+			return aeropuertos;
+		} catch (RemoteException e) {
+			return null;
+		}
 		
-	}*/
+	}
 	
 	
 
