@@ -4,12 +4,22 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import com.toedter.calendar.JCalendar;
+
+import es.deusto.ingenieria.sd.easyB.client.controller.BusquedaController;
+
 import javax.swing.JLabel;
 import java.awt.Font;
+import javax.swing.JComboBox;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class BuscarVueloGUI {
 
 	private JFrame frameBuscador;
+	private BusquedaController controller;
 
 	/**
 	 * Launch the application.
@@ -58,7 +68,37 @@ public class BuscarVueloGUI {
 		frameBuscador.getContentPane().add(lblBuscador);
 		
 		JLabel lblApOrigen = new JLabel("Aeropuerto origen:");
-		lblApOrigen.setBounds(480, 94, 133, 13);
+		lblApOrigen.setBounds(498, 103, 133, 13);
 		frameBuscador.getContentPane().add(lblApOrigen);
+		
+		JComboBox comboBoxApOrigen = new JComboBox();
+		comboBoxApOrigen.setBounds(490, 126, 167, 21);
+		frameBuscador.getContentPane().add(comboBoxApOrigen);
+		
+		JLabel lblApDestino = new JLabel("Aeropuerto destino:");
+		lblApDestino.setBounds(498, 248, 133, 13);
+		frameBuscador.getContentPane().add(lblApDestino);
+		
+		JComboBox comboBoxApDestino = new JComboBox();
+		comboBoxApDestino.setBounds(490, 271, 167, 21);
+		frameBuscador.getContentPane().add(comboBoxApDestino);
+		
+		SpinnerNumberModel model1 = new SpinnerNumberModel(1.0, 1.0, 3.0, 1.0);  
+		JSpinner spinner = new JSpinner(model1);
+		spinner.setBounds(44, 463, 99, 21);
+		frameBuscador.getContentPane().add(spinner);
+		
+		JLabel lblNumPasajeros = new JLabel("N\u00FAmero de pasajeros:");
+		lblNumPasajeros.setBounds(44, 440, 189, 13);
+		frameBuscador.getContentPane().add(lblNumPasajeros);
+		
+		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		btnBuscar.setBounds(570, 495, 100, 30);
+		frameBuscador.getContentPane().add(btnBuscar);
 	}
 }
