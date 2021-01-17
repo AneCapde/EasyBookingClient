@@ -20,5 +20,16 @@ public class AutorizacionController {
 			return false;
 		}
 	}
+	
+	/*public boolean registrarUsuario(String email, String password, String sistemePago, String aeropueto) {
+		try {
+			//return this.serviceLocator.getService()	....Falta en el método en el IEasyBookingRemoteFacade
+		} catch (RemoteException e) {
+			System.err.println("# Error durante el registro: " + e);
+			return false;
+		}
+	}*/
+	
+	
 
 }
