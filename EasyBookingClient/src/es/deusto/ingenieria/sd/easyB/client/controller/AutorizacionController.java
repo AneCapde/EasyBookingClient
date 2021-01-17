@@ -12,14 +12,13 @@ public class AutorizacionController {
 		this.serviceLocator = serviceLocator;
 	}
 	
-	/*public boolean login(String email, String password) {
+	public boolean login(String email, String password) {
 		try {
-			this.serviceLocator.getService().login(email, password);
-			
+			return this.serviceLocator.getService().login(email, password);		
 		} catch (RemoteException e) {
 			System.err.println("# Error durante el LogIn: " + e);
 			return false;
 		}
-	}*/
+	}
 
 }
