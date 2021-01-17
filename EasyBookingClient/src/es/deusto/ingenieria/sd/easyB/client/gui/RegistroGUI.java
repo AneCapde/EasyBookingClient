@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+
+import es.deusto.ingenieria.sd.easyB.client.controller.AutorizacionController;
+
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JSeparator;
@@ -21,11 +24,12 @@ public class RegistroGUI {
 	private JPasswordField passwordField;
 	private ButtonGroup btnGroupSistAut = new ButtonGroup();
 	private ButtonGroup btnGroupSistPago = new ButtonGroup();
+	private AutorizacionController controller;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -36,14 +40,15 @@ public class RegistroGUI {
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the application.
 	 */
-	public RegistroGUI() {
+	public RegistroGUI(AutorizacionController controller) {
 		initialize();
 		frmRegistro.setVisible(true);
+		this.controller = controller;
 	}
 
 	/**
@@ -123,7 +128,7 @@ public class RegistroGUI {
 			
 			public void actionPerformed(ActionEvent e) {
 				
-				//COMPROBAR QUE NO EXISTE EL USUARIO, REGISTRAR USUARIO
+				
 			}
 			
 		});

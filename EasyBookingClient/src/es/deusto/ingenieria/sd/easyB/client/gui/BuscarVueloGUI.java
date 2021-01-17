@@ -4,6 +4,8 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import com.toedter.calendar.JCalendar;
+import javax.swing.JLabel;
+import java.awt.Font;
 
 public class BuscarVueloGUI {
 
@@ -43,7 +45,20 @@ public class BuscarVueloGUI {
 		frameBuscador.getContentPane().setLayout(null);
 		
 		JCalendar calendar = new JCalendar();
-		calendar.setBounds(50, 134, 372, 230);
+		calendar.setBounds(44, 143, 372, 230);
 		frameBuscador.getContentPane().add(calendar);
+		
+		JLabel lblFechaSalida = new JLabel("Fecha de salida del vuelo:");
+		lblFechaSalida.setBounds(47, 120, 186, 13);
+		frameBuscador.getContentPane().add(lblFechaSalida);
+		
+		JLabel lblBuscador = new JLabel("Buscador de vuelos. Introduce los siguientes datos:");
+		lblBuscador.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblBuscador.setBounds(44, 27, 502, 57);
+		frameBuscador.getContentPane().add(lblBuscador);
+		
+		JLabel lblApOrigen = new JLabel("Aeropuerto origen:");
+		lblApOrigen.setBounds(480, 94, 133, 13);
+		frameBuscador.getContentPane().add(lblApOrigen);
 	}
 }
