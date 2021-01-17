@@ -97,7 +97,7 @@ public class BuscarVueloGUI {
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+			//CONTROLLER -> BUSCARVUELOS
 			}
 		});
 		btnBuscar.setBounds(570, 495, 100, 30);
