@@ -16,12 +16,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
+import javax.swing.JPasswordField;
 
 public class LogInGUI {
 
 	private JFrame frmLogIn;
 	private JTextField textFieldemail;
-	private JTextField textFieldPassword;
+	private JPasswordField passwordField;
 
 	/**
 	 * Launch the application.
@@ -82,14 +83,12 @@ public class LogInGUI {
 		lblPassword.setBounds(150, 328, 78, 13);
 		frmLogIn.getContentPane().add(lblPassword);
 		
-		textFieldPassword = new JTextField();
-		textFieldPassword.setBounds(230, 325, 220, 19);
-		frmLogIn.getContentPane().add(textFieldPassword);
-		textFieldPassword.setColumns(10);
-		
 		JButton btnLogIn = new JButton("Iniciar Sesi\u00F3n");
 		btnLogIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				//COMPROBAR LOGIN
+				
 			}
 		});
 		btnLogIn.setBounds(274, 381, 129, 27);
@@ -105,12 +104,24 @@ public class LogInGUI {
 		frmLogIn.getContentPane().add(lblRegistro);
 		
 		JButton btnRegistro = new JButton("Registrarse\r\n");
+		btnRegistro.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				new RegistroGUI();
+				frmLogIn.dispose();
+	
+			}
+		});
 		btnRegistro.setBounds(577, 343, 105, 21);
 		frmLogIn.getContentPane().add(btnRegistro);
 		
 		JLabel lblLogIn = new JLabel("Introduce tus datos para iniciar sesi\u00F3n:");
 		lblLogIn.setBounds(217, 225, 254, 13);
 		frmLogIn.getContentPane().add(lblLogIn);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(230, 325, 220, 19);
+		frmLogIn.getContentPane().add(passwordField);
 		
 		
 		

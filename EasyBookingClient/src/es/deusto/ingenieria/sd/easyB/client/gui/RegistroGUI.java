@@ -11,6 +11,8 @@ import javax.swing.JSeparator;
 import javax.swing.JPasswordField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class RegistroGUI {
 
@@ -41,6 +43,7 @@ public class RegistroGUI {
 	 */
 	public RegistroGUI() {
 		initialize();
+		frmRegistro.setVisible(true);
 	}
 
 	/**
@@ -116,6 +119,14 @@ public class RegistroGUI {
 		frmRegistro.getContentPane().add(lblAeropuerto);
 		
 		JButton btnRegistrarse = new JButton("Registrarse");
+		btnRegistrarse.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				
+				//COMPROBAR QUE NO EXISTE EL USUARIO, REGISTRAR USUARIO
+			}
+			
+		});
 		btnRegistrarse.setBounds(361, 515, 125, 30);
 		frmRegistro.getContentPane().add(btnRegistrarse);
 		
