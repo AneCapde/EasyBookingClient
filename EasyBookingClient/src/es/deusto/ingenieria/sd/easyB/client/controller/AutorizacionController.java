@@ -36,7 +36,7 @@ public class AutorizacionController {
 		try {
 			String[] aeropuertos = new String[50];
 			int i = 0;
-			for (AeropuertoDTO a : serviceLocator.getService().getAeropuertos()) {
+			for (AeropuertoDTO a : this.serviceLocator.getService().getAeropuertos()) {
 				aeropuertos[i] = a.getCod_aeropuerto();
 				i++;
 			}

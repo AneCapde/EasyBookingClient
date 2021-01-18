@@ -20,7 +20,7 @@ public class BusquedaController {
 		try {
 			String[] aeropuertos = new String[50];
 			int i = 0;
-			for (AeropuertoDTO a : serviceLocator.getService().getAeropuertos()) {
+			for (AeropuertoDTO a : this.serviceLocator.getService().getAeropuertos()) {
 				aeropuertos[i] = a.getCod_aeropuerto();
 				i++;
 			}
@@ -33,7 +33,7 @@ public class BusquedaController {
 	
 	public AeropuertoDTO getAeropuetoDTO(String cod_Aeropueto) {
 		try {
-			for (AeropuertoDTO a : serviceLocator.getService().getAeropuertos()) {
+			for (AeropuertoDTO a : this.serviceLocator.getService().getAeropuertos()) {
 				if(a.getCod_aeropuerto().equals(cod_Aeropueto)) {
 					return a;
 				}
@@ -44,8 +44,13 @@ public class BusquedaController {
 		return null;
 	}
 	
-	//HACER ESTE METODO EN EL SERVIDOR
-	public ArrayList<VueloDTO> buscarVuelos(AeropuertoDTO origen, AeropuertoDTO destino, Date fecha, int num_pasajeros){
-		return null;
+	public ArrayList<VueloDTO> buscarVuelos(AeropuertoDTO origen, AeropuertoDTO destino, Date fecha, int num_pasajeros) throws RemoteException{
+		try {
+			return this.serviceLocator.getService().buscarVuelos(origen, destino, fecha, num_pasajeros);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		} 
+		return null;		
 	}
+
 }
