@@ -31,6 +31,19 @@ public class BusquedaController {
 		
 	}
 	
+	public AeropuertoDTO getAeropuetoDTO(String cod_Aeropueto) {
+		try {
+			for (AeropuertoDTO a : serviceLocator.getService().getAeropuertos()) {
+				if(a.getCod_aeropuerto().equals(cod_Aeropueto)) {
+					return a;
+				}
+			}
+		} catch (RemoteException e) {
+			return null;
+		}
+		return null;
+	}
+	
 	//HACER ESTE METODO EN EL SERVIDOR
 	public ArrayList<VueloDTO> buscarVuelos(AeropuertoDTO origen, AeropuertoDTO destino, Date fecha, int num_pasajeros){
 		return null;
