@@ -6,6 +6,7 @@ import java.util.Date;
 
 import es.deusto.ingenieria.sd.easyB.client.remote.RMIServiceLocator;
 import es.deusto.ingenieria.sd.easyB.server.data.dto.AeropuertoDTO;
+import es.deusto.ingenieria.sd.easyB.server.data.dto.VueloDTO;
 
 public class BusquedaController {
 
@@ -30,7 +31,8 @@ public class BusquedaController {
 		
 	}
 	
-	/*public ArrayList<Vuelo> buscarVuelos(Aeropuerto origen, Aeropuerto destino, Date fecha, int num_pasajeros){
-		
-	}*/
+	//HACER ESTE METODO EN EL SERVIDOR
+	public ArrayList<VueloDTO> buscarVuelos(AeropuertoDTO origen, AeropuertoDTO destino, Date fecha, int num_pasajeros){
+		return null;
+	}
 }
