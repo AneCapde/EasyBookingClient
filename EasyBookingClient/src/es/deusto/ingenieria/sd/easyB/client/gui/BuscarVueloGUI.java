@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import com.toedter.calendar.JCalendar;
 
 import es.deusto.ingenieria.sd.easyB.client.controller.BusquedaController;
+import es.deusto.ingenieria.sd.easyB.server.data.dto.AeropuertoDTO;
+import es.deusto.ingenieria.sd.easyB.server.data.dto.VueloDTO;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -14,6 +16,8 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class BuscarVueloGUI {
@@ -22,6 +26,7 @@ public class BuscarVueloGUI {
 	private BusquedaController busController;
 	static BuscarVueloGUI window;
 	int numPasajeros;
+	ArrayList<VueloDTO> vuelosPasados = new ArrayList<>();
 
 	/**
 	 * Launch the application.
@@ -76,7 +81,7 @@ public class BuscarVueloGUI {
 		lblApOrigen.setBounds(498, 103, 133, 13);
 		frameBuscador.getContentPane().add(lblApOrigen);
 		
-		JComboBox comboBoxApOrigen = new JComboBox();
+		JComboBox<String> comboBoxApOrigen = new JComboBox<String>();
 		comboBoxApOrigen.setBounds(490, 126, 167, 21);
 		frameBuscador.getContentPane().add(comboBoxApOrigen);
 		for (String s : busController.getAeropuertos()) {
@@ -87,7 +92,7 @@ public class BuscarVueloGUI {
 		lblApDestino.setBounds(498, 248, 133, 13);
 		frameBuscador.getContentPane().add(lblApDestino);
 		
-		JComboBox comboBoxApDestino = new JComboBox();
+		JComboBox<String> comboBoxApDestino = new JComboBox<String>();
 		comboBoxApDestino.setBounds(490, 271, 167, 21);
 		frameBuscador.getContentPane().add(comboBoxApDestino);
 		//CONTROLLER --> GETAEROPUERTOS
@@ -108,9 +113,16 @@ public class BuscarVueloGUI {
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				AeropuertoDTO ao = busController.getAeropuetoDTO(comboBoxApOrigen.getSelectedItem().toString());
+				AeropuertoDTO ad = busController.getAeropuetoDTO(comboBoxApDestino.getSelectedItem().toString());
 				
-			//CONTROLLER -> BUSCARVUELOS
-			
+				try {
+					vuelosPasados = busController.buscarVuelos(ao, ad, calendar.getDate(), numPasajeros);
+					new ResultadoVuelosGUI(busController);
+					frameBuscador.dispose();
+				} catch (RemoteException e1) {
+					e1.printStackTrace();
+				}	
 			}
 		});
 		btnBuscar.setBounds(570, 495, 100, 30);

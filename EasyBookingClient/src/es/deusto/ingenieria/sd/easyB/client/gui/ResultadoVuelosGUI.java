@@ -8,6 +8,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import es.deusto.ingenieria.sd.easyB.client.controller.BusquedaController;
+
 import java.awt.Font;
 import javax.swing.JOptionPane;
 import javax.swing.JButton;
@@ -27,7 +29,7 @@ public class ResultadoVuelosGUI {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -38,12 +40,13 @@ public class ResultadoVuelosGUI {
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the application.
+	 * @param busController 
 	 */
-	public ResultadoVuelosGUI() {
+	public ResultadoVuelosGUI(BusquedaController busController) {
 		initialize();
 	}
 
