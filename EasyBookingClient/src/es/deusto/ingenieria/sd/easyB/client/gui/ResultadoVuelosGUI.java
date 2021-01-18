@@ -4,18 +4,15 @@ import java.awt.EventQueue;
 import java.awt.SystemColor;
 
 import javax.swing.JFrame;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
-import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import java.awt.Font;
-import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class ResultadoVuelosGUI {
@@ -24,6 +21,8 @@ public class ResultadoVuelosGUI {
 	private JTable jTable;
 	private DefaultTableModel tableModel;
 	private JButton btnSeleccionarVuelo;
+	private int i;
+	private ArrayList<String> nombre_pasajeros = new ArrayList<>();
 
 	/**
 	 * Launch the application.
@@ -79,13 +78,30 @@ public class ResultadoVuelosGUI {
 		btnSeleccionarVuelo = new JButton("Seleccionar Vuelo");
 		btnSeleccionarVuelo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				
+				//int numPasajeros = BuscarVueloGUI.window.numPasajeros;
+				for(i = 0; i <  4; i++) {
+					int pasajero = i+1;
+					boolean ok = false;
+					String nombre = JOptionPane.showInputDialog("Introduce el nombre del pasajero " + pasajero);	
+					while(!ok) {
+						if(nombre.equals("")) {
+							nombre = JOptionPane.showInputDialog("Introduce el nombre del pasajero " + pasajero);
+						}else {
+							nombre_pasajeros.add(nombre);
+							ok = true;
+						}
+					}
+				}
+				if(nombre_pasajeros.size() == 4) {
+					//CONTROLLER --> HACER RESERVA
+					
+				}else {
+					JOptionPane.showMessageDialog(frameResult, "Debes introducir el nombre de todos los pasajeros");
+				}
 			}
 		});
 		btnSeleccionarVuelo.setBounds(312, 489, 162, 31);
 		frameResult.getContentPane().add(btnSeleccionarVuelo);
-		
 		
 	}
 }

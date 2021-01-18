@@ -20,6 +20,8 @@ public class BuscarVueloGUI {
 
 	private JFrame frameBuscador;
 	private BusquedaController busController;
+	static BuscarVueloGUI window;
+	int numPasajeros;
 
 	/**
 	 * Launch the application.
@@ -43,6 +45,7 @@ public class BuscarVueloGUI {
 	 */
 	public BuscarVueloGUI(BusquedaController busController) {
 		initialize();
+		window = this;
 		this.busController = busController;
 	}
 
@@ -76,6 +79,9 @@ public class BuscarVueloGUI {
 		JComboBox comboBoxApOrigen = new JComboBox();
 		comboBoxApOrigen.setBounds(490, 126, 167, 21);
 		frameBuscador.getContentPane().add(comboBoxApOrigen);
+		for (String s : busController.getAeropuertos()) {
+			comboBoxApOrigen.addItem(s);
+		}
 		
 		JLabel lblApDestino = new JLabel("Aeropuerto destino:");
 		lblApDestino.setBounds(498, 248, 133, 13);
@@ -84,11 +90,16 @@ public class BuscarVueloGUI {
 		JComboBox comboBoxApDestino = new JComboBox();
 		comboBoxApDestino.setBounds(490, 271, 167, 21);
 		frameBuscador.getContentPane().add(comboBoxApDestino);
+		//CONTROLLER --> GETAEROPUERTOS
+		for (String s : busController.getAeropuertos()) {
+			comboBoxApDestino.addItem(s);
+		}
 		
 		SpinnerNumberModel model1 = new SpinnerNumberModel(1.0, 1.0, 3.0, 1.0);  
 		JSpinner spinner = new JSpinner(model1);
 		spinner.setBounds(44, 463, 99, 21);
 		frameBuscador.getContentPane().add(spinner);
+		numPasajeros = (Integer) spinner.getValue();
 		
 		JLabel lblNumPasajeros = new JLabel("N\u00FAmero de pasajeros:");
 		lblNumPasajeros.setBounds(44, 440, 189, 13);
@@ -97,7 +108,9 @@ public class BuscarVueloGUI {
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 			//CONTROLLER -> BUSCARVUELOS
+			
 			}
 		});
 		btnBuscar.setBounds(570, 495, 100, 30);
