@@ -7,8 +7,11 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 
 import es.deusto.ingenieria.sd.easyB.client.controller.AutorizacionController;
+import es.deusto.ingenieria.sd.easyB.client.controller.BusquedaController;
+import es.deusto.ingenieria.sd.easyB.client.program.MainProgram;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JSeparator;
 import javax.swing.JPasswordField;
@@ -130,8 +133,15 @@ public class RegistroGUI {
 			
 			public void actionPerformed(ActionEvent e) {
 			//CONTROLLER --> REGISTRARUSUARIO	
-				controller.registrarUsuario(textField.getText(), passwordField.getPassword().toString(), 
-									btnGroupSistPago.getSelection().getActionCommand(), comboBox.getSelectedItem().toString());
+				if(controller.registrarUsuario(textField.getText(), passwordField.getPassword().toString(), 
+									btnGroupSistPago.getSelection().getActionCommand(), comboBox.getSelectedItem().toString())) {
+					BusquedaController busController = new BusquedaController(MainProgram.getServiceLocator());
+					new BuscarVueloGUI(busController);
+					frmRegistro.dispose();
+				} else {
+					JOptionPane.showMessageDialog(frmRegistro, "Error. No se pudo completar el registro.");
+					passwordField.setText("");
+				}
 			}
 			
 		});
