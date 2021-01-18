@@ -116,7 +116,7 @@ public class RegistroGUI {
 		frmRegistro.getContentPane().add(rdbtnVisa);
 		btnGroupSistPago.add(rdbtnVisa);
 		
-		JComboBox comboBox = new JComboBox();
+		JComboBox<String> comboBox = new JComboBox<String>();
 		comboBox.setBounds(510, 273, 209, 21);
 		frmRegistro.getContentPane().add(comboBox);	
 		//CONTROLLER --> GETAEROPUERTOS
