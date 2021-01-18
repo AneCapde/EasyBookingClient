@@ -24,13 +24,13 @@ public class ReservaController {
 		}
 	}
 	
-	/*public boolean reservaVuelos(VueloDTO vuelo, double importe, int num_pasajeros, Date fecha, ArrayList<String> nombre_pasajeros) {
+	public boolean reservaVuelos(VueloDTO vuelo, double importe, int num_pasajeros, Date fecha, ArrayList<String> nombre_pasajeros) {
 		try {
-			//return this.serviceLocator.getService().reservaVuelos(null, importe, num_pasajeros, fecha, nombre_pasajeros)
+			return this.serviceLocator.getService().reservaVuelos(vuelo, importe, num_pasajeros, fecha, nombre_pasajeros);
 			
 		} catch (RemoteException e) {
-			System.err.println("# Error durante la reserva: " + e);
-			return false;
+			System.err.println("# Error durante la reserva: " + e);			
 		}
-	}*/
+		return false;
+	}
 }
