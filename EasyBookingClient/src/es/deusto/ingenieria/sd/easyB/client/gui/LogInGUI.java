@@ -54,6 +54,7 @@ public class LogInGUI {
 	public LogInGUI(AutorizacionController autController) {
 		initialize();
 		this.autController = autController;
+		frmLogIn.setVisible(true);
 		
 	}
 
@@ -68,13 +69,13 @@ public class LogInGUI {
 		frmLogIn.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmLogIn.getContentPane().setLayout(null);
 		
-		JLabel lblLogo = new JLabel("New label");
-		lblLogo.setBounds(41, 34, 230, 140);
-		Image logo = new ImageIcon("img" + File.separator + "logoEBooking.jpg").getImage();
-		ImageIcon logoScaled =new ImageIcon(logo.getScaledInstance(230, 140, Image.SCALE_SMOOTH));
-		lblLogo.setIcon(logoScaled);
-		frmLogIn.getContentPane().add(lblLogo);
-		
+//		JLabel lblLogo = new JLabel("New label");
+//		lblLogo.setBounds(41, 34, 230, 140);
+//		//Image logo = new ImageIcon("img" + File.separator + "logoEBooking.jpg").getImage();
+//		//ImageIcon logoScaled =new ImageIcon(logo.getScaledInstance(230, 140, Image.SCALE_SMOOTH));
+//		lblLogo.setIcon(logoScaled);
+//		frmLogIn.getContentPane().add(lblLogo);
+//		
 		JLabel lblNewLabel = new JLabel("Plataforma para buscar y reservar vuelos.");
 		lblNewLabel.setFont(new Font("Yu Gothic", Font.BOLD, 22));
 		lblNewLabel.setBounds(297, 50, 464, 140);
@@ -127,6 +128,7 @@ public class LogInGUI {
 			public void actionPerformed(ActionEvent e) {
 				new RegistroGUI(autController);
 				frmLogIn.dispose();
+				
 			}
 		});
 		btnRegistro.setBounds(577, 343, 105, 21);
