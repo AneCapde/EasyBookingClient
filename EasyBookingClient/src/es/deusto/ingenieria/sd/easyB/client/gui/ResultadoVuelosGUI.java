@@ -28,6 +28,7 @@ public class ResultadoVuelosGUI {
 	private int i;
 	private ArrayList<String> nombre_pasajeros = new ArrayList<>();
 	private VueloDTO vueloSeleccionado;
+	private ReservaController resController;
 
 	/**
 	 * Launch the application.
@@ -51,6 +52,7 @@ public class ResultadoVuelosGUI {
 	 */
 	public ResultadoVuelosGUI(ReservaController resController) {
 		initialize();
+		this.resController = resController;
 	}
 
 	/**
@@ -101,6 +103,9 @@ public class ResultadoVuelosGUI {
 				if(nombre_pasajeros.size() == 4) {
 					//CONTROLLER --> HACER RESERVA
 					vueloSeleccionado = BuscarVueloGUI.window.vuelosPasados.get(jTable.getSelectedRow());
+					if(resController.reservaVuelos(vueloSeleccionado, i, i, null, nombre_pasajeros)) {
+						
+					}
 					
 				}else {
 					JOptionPane.showMessageDialog(frameResult, "Debes introducir el nombre de todos los pasajeros");
