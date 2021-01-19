@@ -53,9 +53,10 @@ public class ResultadoVuelosGUI {
 	 * @param resController 
 	 */
 	public ResultadoVuelosGUI(ReservaController resController) {
-		initialize();
-		window = this;
 		this.resController = resController;
+		initialize();
+		frameResult.setVisible(true);
+		window = this;
 	}
 
 	/**

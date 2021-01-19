@@ -136,7 +136,7 @@ public class RegistroGUI {
 				
 				
 			//CONTROLLER --> REGISTRARUSUARIO	
-				if(controller.registrarUsuario(textField.getText(), passwordField.getPassword().toString(), 
+				if(controller.registrarUsuario(textField.getText(), new String(passwordField.getPassword()), 
 									"PayPal", comboBox.getSelectedItem().toString())) {
 					BusquedaController busController = new BusquedaController(MainProgram.getServiceLocator());
 					new BuscarVueloGUI(busController);

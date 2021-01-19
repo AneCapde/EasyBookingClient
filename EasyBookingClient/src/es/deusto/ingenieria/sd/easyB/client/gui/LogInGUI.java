@@ -98,7 +98,7 @@ public class LogInGUI {
 		btnLogIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//CONTROLLER --> LOGIN
-				if(autController.login(textFieldemail.getText(), passwordField.getText())) {
+				if(autController.login(textFieldemail.getText(), new String(passwordField.getPassword()))) {
 					
 					BusquedaController busController = new BusquedaController(MainProgram.getServiceLocator());
 					new BuscarVueloGUI(busController);

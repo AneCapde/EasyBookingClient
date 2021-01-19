@@ -19,6 +19,8 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.rmi.RemoteException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
@@ -117,15 +119,19 @@ public class BuscarVueloGUI {
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AeropuertoDTO ao = busController.getAeropuetoDTO(comboBoxApOrigen.getSelectedItem().toString());
-				AeropuertoDTO ad = busController.getAeropuetoDTO(comboBoxApDestino.getSelectedItem().toString());
+				AeropuertoDTO ao = busController.getAeropuetoDTO(String.valueOf(comboBoxApOrigen.getSelectedItem()));
+				AeropuertoDTO ad = busController.getAeropuetoDTO(String.valueOf(comboBoxApDestino.getSelectedItem()));
 				
 				try {
-					vuelosPasados = busController.buscarVuelos(ao, ad, calendar.getDate(), numPasajeros);
+					
+					SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
+					String strDate= formatter.format(calendar.getDate());
+					
+					vuelosPasados = busController.buscarVuelos(ao, ad, new SimpleDateFormat("dd/MM/yyyy").parse(strDate) , numPasajeros);
 					ReservaController resController = new ReservaController(MainProgram.getServiceLocator());
 					new ResultadoVuelosGUI(resController);
 					frameBuscador.dispose();
-				} catch (RemoteException e1) {
+				} catch (RemoteException | ParseException e1) {
 					e1.printStackTrace();
 				}	
 			}
