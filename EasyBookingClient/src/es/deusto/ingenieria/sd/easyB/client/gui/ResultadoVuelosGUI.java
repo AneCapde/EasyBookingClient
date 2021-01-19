@@ -30,6 +30,7 @@ public class ResultadoVuelosGUI {
 	private VueloDTO vueloSeleccionado;
 	private ReservaController resController;
 	double precio;
+	static ResultadoVuelosGUI window;
 
 	/**
 	 * Launch the application.
@@ -53,6 +54,7 @@ public class ResultadoVuelosGUI {
 	 */
 	public ResultadoVuelosGUI(ReservaController resController) {
 		initialize();
+		window = this;
 		this.resController = resController;
 	}
 
@@ -109,7 +111,7 @@ public class ResultadoVuelosGUI {
 					if(resController.reservaVuelos(vueloSeleccionado, precio, BuscarVueloGUI.window.numPasajeros, vueloSeleccionado.getSalida(), nombre_pasajeros)) {
 						new PagoGUI(resController);
 					}else {
-						
+						JOptionPane.showMessageDialog(frameResult, "No se ha podido hacer la reserva");
 					}
 					
 				}else {

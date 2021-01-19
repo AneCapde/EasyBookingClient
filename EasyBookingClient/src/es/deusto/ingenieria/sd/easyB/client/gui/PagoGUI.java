@@ -61,9 +61,9 @@ public class PagoGUI {
 		lblPago.setBounds(143, 76, 378, 30);
 		frmPagoPaypal.getContentPane().add(lblPago);
 		
-		JLabel lblN = new JLabel("Email:");
-		lblN.setBounds(177, 172, 45, 13);
-		frmPagoPaypal.getContentPane().add(lblN);
+		JLabel lblEmail = new JLabel("Email:");
+		lblEmail.setBounds(177, 172, 45, 13);
+		frmPagoPaypal.getContentPane().add(lblEmail);
 		
 		textFieldEmail = new JTextField();
 		textFieldEmail.setBounds(177, 195, 220, 20);
@@ -82,7 +82,7 @@ public class PagoGUI {
 		btnConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			//CONTROLLER --> PAGAR
-				
+				resController.realizarPago(textFieldEmail.getText(), passwordField.getPassword().toString(), ResultadoVuelosGUI.window.precio);
 			}
 		});
 		btnConfirmar.setBounds(223, 418, 127, 30);
