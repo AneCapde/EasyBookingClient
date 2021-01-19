@@ -52,9 +52,10 @@ public class BuscarVueloGUI {
 	 * @param busController 
 	 */
 	public BuscarVueloGUI(BusquedaController busController) {
-		initialize();
-		window = this;
 		this.busController = busController;
+		initialize();
+		frameBuscador.setVisible(true);
+		window = this;
 	}
 
 	/**
@@ -103,7 +104,7 @@ public class BuscarVueloGUI {
 			comboBoxApDestino.addItem(s);
 		}
 		
-		SpinnerNumberModel model1 = new SpinnerNumberModel(1.0, 1.0, 3.0, 1.0);  
+		SpinnerNumberModel model1 = new SpinnerNumberModel(1, 1, 3, 1);  
 		JSpinner spinner = new JSpinner(model1);
 		spinner.setBounds(44, 463, 99, 21);
 		frameBuscador.getContentPane().add(spinner);

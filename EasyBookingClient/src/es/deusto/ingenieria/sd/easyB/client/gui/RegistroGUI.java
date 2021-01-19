@@ -49,9 +49,9 @@ public class RegistroGUI {
 	 * Create the application.
 	 */
 	public RegistroGUI(AutorizacionController controller) {
+		this.controller = controller;
 		initialize();
 		frmRegistro.setVisible(true);
-		this.controller = controller;
 	}
 
 	/**
@@ -106,6 +106,7 @@ public class RegistroGUI {
 		frmRegistro.getContentPane().add(lblSistPago);
 		
 		JRadioButton rdbtnPayPal = new JRadioButton("PayPal");
+		
 		rdbtnPayPal.setSelected(true);
 		rdbtnPayPal.setBounds(62, 418, 103, 21);
 		frmRegistro.getContentPane().add(rdbtnPayPal);
@@ -132,9 +133,11 @@ public class RegistroGUI {
 		btnRegistrarse.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
+				
+				
 			//CONTROLLER --> REGISTRARUSUARIO	
 				if(controller.registrarUsuario(textField.getText(), passwordField.getPassword().toString(), 
-									btnGroupSistPago.getSelection().getActionCommand(), comboBox.getSelectedItem().toString())) {
+									"PayPal", comboBox.getSelectedItem().toString())) {
 					BusquedaController busController = new BusquedaController(MainProgram.getServiceLocator());
 					new BuscarVueloGUI(busController);
 					frmRegistro.dispose();

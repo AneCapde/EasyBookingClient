@@ -52,8 +52,8 @@ public class LogInGUI {
 	 * Create the application.
 	 */
 	public LogInGUI(AutorizacionController autController) {
-		initialize();
 		this.autController = autController;
+		initialize();
 		frmLogIn.setVisible(true);
 		
 	}
@@ -98,7 +98,7 @@ public class LogInGUI {
 		btnLogIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//CONTROLLER --> LOGIN
-				if(autController.login(textFieldemail.getText(), passwordField.getPassword().toString())) {
+				if(autController.login(textFieldemail.getText(), passwordField.getText())) {
 					
 					BusquedaController busController = new BusquedaController(MainProgram.getServiceLocator());
 					new BuscarVueloGUI(busController);

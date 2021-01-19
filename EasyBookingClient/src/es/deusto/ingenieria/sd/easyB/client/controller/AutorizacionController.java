@@ -1,7 +1,6 @@
 package es.deusto.ingenieria.sd.easyB.client.controller;
 
 import java.rmi.RemoteException;
-import java.util.List;
 
 import es.deusto.ingenieria.sd.easyB.client.remote.RMIServiceLocator;
 import es.deusto.ingenieria.sd.easyB.server.data.dto.AeropuertoDTO;
