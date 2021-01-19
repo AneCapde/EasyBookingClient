@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import es.deusto.ingenieria.sd.easyB.client.controller.ReservaController;
@@ -82,7 +83,16 @@ public class PagoGUI {
 		btnConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			//CONTROLLER --> PAGAR
-				resController.realizarPago(textFieldEmail.getText(), passwordField.getPassword().toString(), ResultadoVuelosGUI.window.precio);
+				boolean pagoOK = false;
+				while(!pagoOK) {
+					if(resController.realizarPago(textFieldEmail.getText(), passwordField.getPassword().toString(), ResultadoVuelosGUI.window.precio)){
+						pagoOK = true;
+						JOptionPane.showMessageDialog(frmPagoPaypal, "Pago aceptado");
+						frmPagoPaypal.dispose();
+					}else {
+						JOptionPane.showMessageDialog(frmPagoPaypal, "Error en el pago");
+					}
+				}
 			}
 		});
 		btnConfirmar.setBounds(223, 418, 127, 30);
