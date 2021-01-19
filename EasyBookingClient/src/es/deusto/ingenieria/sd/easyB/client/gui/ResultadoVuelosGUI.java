@@ -9,6 +9,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import es.deusto.ingenieria.sd.easyB.client.controller.BusquedaController;
+import es.deusto.ingenieria.sd.easyB.server.data.dto.VueloDTO;
 
 import java.awt.Font;
 import javax.swing.JOptionPane;
@@ -60,13 +61,12 @@ public class ResultadoVuelosGUI {
 		frameResult.getContentPane().setLayout(null);
 		
 		tableModel = new DefaultTableModel();
-		tableModel.setColumnIdentifiers(new String[] {"Aerolínea", "Fecha", "Hora", "Precio"});
+		tableModel.setColumnIdentifiers(new String[] {"COD VUELO", "AEROLINEA", "ORIGEN", "DESTINO", "FECHA", "PRECIO"});
 			
-
-		String[] fila = {"Iberia", "12/12/2020", "12:32", "50"};
-		String[] fila2 = {"Vueling", "12/12/2020", "12:32", "50"};
-		tableModel.addRow(fila);
-		tableModel.addRow(fila2);
+		for (VueloDTO v : BuscarVueloGUI.window.vuelosPasados) {
+			String[] fila = {v.getCod_vuelo(), v.getAerolinea().getNombre(), v.getAero_origen().getCod_aeropuerto(), v.getAero_destino().getCod_aeropuerto(), v.getSalida().toString(), String.valueOf(v.getPrecio()) };	
+			tableModel.addRow(fila);
+		}
 					
 	
 		jTable = new JTable(tableModel);
