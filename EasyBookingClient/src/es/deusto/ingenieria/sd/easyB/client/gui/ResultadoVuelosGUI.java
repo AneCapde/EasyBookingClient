@@ -29,6 +29,7 @@ public class ResultadoVuelosGUI {
 	private ArrayList<String> nombre_pasajeros = new ArrayList<>();
 	private VueloDTO vueloSeleccionado;
 	private ReservaController resController;
+	double precio;
 
 	/**
 	 * Launch the application.
@@ -103,7 +104,9 @@ public class ResultadoVuelosGUI {
 				if(nombre_pasajeros.size() == 4) {
 					//CONTROLLER --> HACER RESERVA
 					vueloSeleccionado = BuscarVueloGUI.window.vuelosPasados.get(jTable.getSelectedRow());
-					if(resController.reservaVuelos(vueloSeleccionado, i, i, null, nombre_pasajeros)) {
+					precio = vueloSeleccionado.getPrecio() * BuscarVueloGUI.window.numPasajeros;
+					
+					if(resController.reservaVuelos(vueloSeleccionado, precio, BuscarVueloGUI.window.numPasajeros, vueloSeleccionado.getSalida(), nombre_pasajeros)) {
 						
 					}
 					
