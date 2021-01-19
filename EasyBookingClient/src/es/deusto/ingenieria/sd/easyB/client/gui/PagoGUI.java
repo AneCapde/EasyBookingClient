@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import es.deusto.ingenieria.sd.easyB.client.controller.ReservaController;
+
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.Font;
@@ -16,11 +19,12 @@ public class PagoGUI {
 	private JFrame frmPagoPaypal;
 	private JTextField textFieldEmail;
 	private JPasswordField passwordField;
+	private ReservaController resController;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -31,13 +35,15 @@ public class PagoGUI {
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the application.
+	 * @param resController 
 	 */
-	public PagoGUI() {
+	public PagoGUI(ReservaController resController) {
 		initialize();
+		this.resController = resController;
 	}
 
 	/**
