@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import com.toedter.calendar.JCalendar;
 
 import es.deusto.ingenieria.sd.easyB.client.controller.BusquedaController;
+import es.deusto.ingenieria.sd.easyB.client.controller.ReservaController;
+import es.deusto.ingenieria.sd.easyB.client.program.MainProgram;
 import es.deusto.ingenieria.sd.easyB.server.data.dto.AeropuertoDTO;
 import es.deusto.ingenieria.sd.easyB.server.data.dto.VueloDTO;
 
@@ -24,6 +26,7 @@ public class BuscarVueloGUI {
 
 	private JFrame frameBuscador;
 	private BusquedaController busController;
+	private ReservaController resController;
 	static BuscarVueloGUI window;
 	int numPasajeros;
 	ArrayList<VueloDTO> vuelosPasados = new ArrayList<>();
@@ -118,7 +121,8 @@ public class BuscarVueloGUI {
 				
 				try {
 					vuelosPasados = busController.buscarVuelos(ao, ad, calendar.getDate(), numPasajeros);
-					new ResultadoVuelosGUI(busController);
+					ReservaController resController = new ReservaController(MainProgram.getServiceLocator());
+					new ResultadoVuelosGUI(resController);
 					frameBuscador.dispose();
 				} catch (RemoteException e1) {
 					e1.printStackTrace();

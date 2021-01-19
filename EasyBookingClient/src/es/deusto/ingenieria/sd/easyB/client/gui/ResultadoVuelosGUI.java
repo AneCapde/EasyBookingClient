@@ -9,6 +9,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import es.deusto.ingenieria.sd.easyB.client.controller.BusquedaController;
+import es.deusto.ingenieria.sd.easyB.client.controller.ReservaController;
 import es.deusto.ingenieria.sd.easyB.server.data.dto.VueloDTO;
 
 import java.awt.Font;
@@ -26,6 +27,7 @@ public class ResultadoVuelosGUI {
 	private JButton btnSeleccionarVuelo;
 	private int i;
 	private ArrayList<String> nombre_pasajeros = new ArrayList<>();
+	private VueloDTO vueloSeleccionado;
 
 	/**
 	 * Launch the application.
@@ -45,9 +47,9 @@ public class ResultadoVuelosGUI {
 
 	/**
 	 * Create the application.
-	 * @param busController 
+	 * @param resController 
 	 */
-	public ResultadoVuelosGUI(BusquedaController busController) {
+	public ResultadoVuelosGUI(ReservaController resController) {
 		initialize();
 	}
 
@@ -66,6 +68,7 @@ public class ResultadoVuelosGUI {
 		for (VueloDTO v : BuscarVueloGUI.window.vuelosPasados) {
 			String[] fila = {v.getCod_vuelo(), v.getAerolinea().getNombre(), v.getAero_origen().getCod_aeropuerto(), v.getAero_destino().getCod_aeropuerto(), v.getSalida().toString(), String.valueOf(v.getPrecio()) };	
 			tableModel.addRow(fila);
+			
 		}
 					
 	
@@ -97,6 +100,7 @@ public class ResultadoVuelosGUI {
 				}
 				if(nombre_pasajeros.size() == 4) {
 					//CONTROLLER --> HACER RESERVA
+					vueloSeleccionado = BuscarVueloGUI.window.vuelosPasados.get(jTable.getSelectedRow());
 					
 				}else {
 					JOptionPane.showMessageDialog(frameResult, "Debes introducir el nombre de todos los pasajeros");
