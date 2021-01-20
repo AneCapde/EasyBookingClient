@@ -110,8 +110,8 @@ public class ResultadoVuelosGUI {
 					precio = vueloSeleccionado.getPrecio() * BuscarVueloGUI.window.numPasajeros;
 					
 					if(resController.reservaVuelos(vueloSeleccionado, precio, BuscarVueloGUI.window.numPasajeros, vueloSeleccionado.getSalida(), nombre_pasajeros)) {
-						new PagoGUI(resController);
 						frameResult.dispose();
+						new PagoGUI(resController);
 					}else {
 						JOptionPane.showMessageDialog(frameResult, "No se ha podido hacer la reserva");
 					}

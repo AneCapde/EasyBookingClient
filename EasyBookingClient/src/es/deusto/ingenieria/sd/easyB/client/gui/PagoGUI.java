@@ -86,15 +86,12 @@ public class PagoGUI {
 			public void actionPerformed(ActionEvent e) {
 			//CONTROLLER --> PAGAR
 				boolean pagoOK = false;
-				while(!pagoOK) {
-					if(resController.realizarPago(textFieldEmail.getText(), passwordField.getPassword().toString(), ResultadoVuelosGUI.window.precio)){
-						pagoOK = true;
+					if(resController.realizarPago(textFieldEmail.getText(), new String(passwordField.getPassword()), ResultadoVuelosGUI.window.precio)){
 						JOptionPane.showMessageDialog(frmPagoPaypal, "Pago aceptado");
 						frmPagoPaypal.dispose();
 					}else {
 						JOptionPane.showMessageDialog(frmPagoPaypal, "Error en el pago");
 					}
-				}
 			}
 		});
 		btnConfirmar.setBounds(223, 418, 127, 30);
