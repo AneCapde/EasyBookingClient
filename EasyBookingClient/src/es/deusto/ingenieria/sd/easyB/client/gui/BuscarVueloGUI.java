@@ -110,7 +110,6 @@ public class BuscarVueloGUI {
 		JSpinner spinner = new JSpinner(model1);
 		spinner.setBounds(44, 463, 99, 21);
 		frameBuscador.getContentPane().add(spinner);
-		numPasajeros = (Integer) spinner.getValue();
 		
 		JLabel lblNumPasajeros = new JLabel("N\u00FAmero de pasajeros:");
 		lblNumPasajeros.setBounds(44, 440, 189, 13);
@@ -121,7 +120,8 @@ public class BuscarVueloGUI {
 			public void actionPerformed(ActionEvent e) {
 				AeropuertoDTO ao = busController.getAeropuetoDTO(String.valueOf(comboBoxApOrigen.getSelectedItem()));
 				AeropuertoDTO ad = busController.getAeropuetoDTO(String.valueOf(comboBoxApDestino.getSelectedItem()));
-				
+				numPasajeros = (Integer) spinner.getValue();
+				System.out.println("Numero Pasajeros:" + numPasajeros);
 				try {
 					
 					SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  

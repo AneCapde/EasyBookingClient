@@ -90,8 +90,8 @@ public class ResultadoVuelosGUI {
 		btnSeleccionarVuelo = new JButton("Seleccionar Vuelo");
 		btnSeleccionarVuelo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//int numPasajeros = BuscarVueloGUI.window.numPasajeros;
-				for(i = 0; i <  4; i++) {
+				int numPasajeros = BuscarVueloGUI.window.numPasajeros;
+				for(i = 0; i <  numPasajeros; i++) {
 					int pasajero = i+1;
 					boolean ok = false;
 					String nombre = JOptionPane.showInputDialog("Introduce el nombre del pasajero " + pasajero);	
@@ -104,13 +104,14 @@ public class ResultadoVuelosGUI {
 						}
 					}
 				}
-				if(nombre_pasajeros.size() == 4) {
+				if(nombre_pasajeros.size() == numPasajeros) {
 					//CONTROLLER --> HACER RESERVA
 					vueloSeleccionado = BuscarVueloGUI.window.vuelosPasados.get(jTable.getSelectedRow());
 					precio = vueloSeleccionado.getPrecio() * BuscarVueloGUI.window.numPasajeros;
 					
 					if(resController.reservaVuelos(vueloSeleccionado, precio, BuscarVueloGUI.window.numPasajeros, vueloSeleccionado.getSalida(), nombre_pasajeros)) {
 						new PagoGUI(resController);
+						frameResult.dispose();
 					}else {
 						JOptionPane.showMessageDialog(frameResult, "No se ha podido hacer la reserva");
 					}

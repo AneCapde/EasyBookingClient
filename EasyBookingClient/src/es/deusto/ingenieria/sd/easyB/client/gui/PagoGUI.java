@@ -43,8 +43,10 @@ public class PagoGUI {
 	 * @param resController 
 	 */
 	public PagoGUI(ReservaController resController) {
-		initialize();
+		
 		this.resController = resController;
+		initialize();
+		frmPagoPaypal.setVisible(true);
 	}
 
 	/**
